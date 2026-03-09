@@ -20,28 +20,28 @@ Raw Long Reads (IsoSeq / dRNA)
         │
         ▼
 ┌─────────────────────┐
-│  1. Alignment        │  minimap2 splice-aware alignment
-│     (splice-aware)   │  PacBio HiFi / ONT presets
+│  1. Alignment       │  minimap2 splice-aware alignment
+│     (splice-aware)  │  PacBio HiFi / ONT presets
 └─────────┬───────────┘
           ▼
 ┌─────────────────────┐
-│  2. Isoform Analysis │  Collapse → Classify (SQANTI3-style)
-│     FSM/ISM/NIC/NNC  │  FSM, ISM, NIC, NNC, IR categories
+│  2. Iso. Analysis   │  Collapse → Classify (SQANTI3-style)
+│     FSM/ISM/NIC/NNC │  FSM, ISM, NIC, NNC, IR categories
 └─────────┬───────────┘
           ▼
 ┌─────────────────────┐
-│  3. Splicing Events  │  Exon skipping, cryptic exons,
-│     Detection        │  intron retention, alt 5'/3' SS
+│  3. Splicing Events │  Exon skipping, cryptic exons,
+│     Detection       │  intron retention, alt 5'/3' SS
 └─────────┬───────────┘
           ▼
 ┌─────────────────────┐
-│  4. ASO/SSO Design   │  Candidate generation (18-25nt)
-│     & Scoring        │  Multi-criteria scoring + off-target
+│  4. ASO/SSO Design  │  Candidate generation (18-25nt)
+│     & Scoring       │  Multi-criteria scoring + off-target
 └─────────┬───────────┘
           ▼
 ┌─────────────────────┐
-│  5. Report &         │  Sashimi plot + ranked target table
-│     Visualization    │  JSON results + CSV candidates
+│  5. Report &        │  Sashimi plot + ranked target table
+│     Visualization   │  JSON results + CSV candidates
 └─────────────────────┘
 ```
 
