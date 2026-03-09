@@ -1,0 +1,111 @@
+# ═══════════════════════════════════════════════════════════════════════
+# splicetarget — Project Configuration (PEP 517/518)
+# ═══════════════════════════════════════════════════════════════════════
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "splicetarget"
+version = "0.1.0"
+description = "Long-read splice isoform analysis and antisense oligonucleotide target nomination for personalized therapeutic design"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Patrick Grady"},
+]
+keywords = [
+    "bioinformatics",
+    "splicing",
+    "isoform",
+    "PacBio",
+    "IsoSeq",
+    "ASO",
+    "antisense-oligonucleotide",
+    "splice-switching",
+    "long-read-RNA",
+    "rare-disease",
+    "therapeutic-design",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+dependencies = [
+    "pysam>=0.22.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "biopython>=1.82",
+    "click>=8.1",
+    "rich>=13.0",
+    "pyyaml>=6.0",
+    "matplotlib>=3.7",
+    "plotly>=5.15",
+    "jinja2>=3.1",
+    "pyarrow>=14.0",
+    "intervaltree>=3.1",
+    "gffutils>=0.12",
+    "httpx>=0.25",
+]
+
+[project.optional-dependencies]
+folding = [
+    "ViennaRNA>=2.6",        # RNA secondary structure prediction
+]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pytest-xdist>=3.3",
+    "ruff>=0.1",
+    "mypy>=1.5",
+    "pre-commit>=3.4",
+]
+docs = [
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.4",
+    "mkdocstrings[python]>=0.23",
+]
+
+[project.urls]
+Homepage = "https://github.com/patrickgrady/splicetarget"
+Repository = "https://github.com/patrickgrady/splicetarget"
+Issues = "https://github.com/patrickgrady/splicetarget/issues"
+
+[project.scripts]
+splicetarget = "splicetarget.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["splicetarget*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+select = ["E", "F", "W", "I", "N", "UP", "ANN", "B", "SIM"]
+ignore = ["ANN101", "ANN102", "ANN401"]
+
+[tool.ruff.isort]
+known-first-party = ["splicetarget"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks integration tests requiring external tools",
+]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

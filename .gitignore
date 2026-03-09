@@ -1,0 +1,53 @@
+# splicetarget
+
+# Environments
+.venv/
+.vscode/
+
+# Byte-compiled / cached
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Linting
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (large files)
+*.bam
+*.bam.bai
+*.fa
+*.fa.fai
+*.fastq
+*.fastq.gz
+*.fasta
+*.fasta.gz
+*.gtf
+*.gff3
+*.db
+
+# Notebooks (exploration only — not published)
+*.ipynb
+!notebooks/00_quickstart.ipynb
+!notebooks/02_real_data_walkthrough.ipynb
+.ipynb_checkpoints/
+
+# Results
+results/
+trained_models/

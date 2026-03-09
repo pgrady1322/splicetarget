@@ -1,0 +1,52 @@
+# splicetarget pipeline configuration
+# ────────────────────────────────────
+
+# ── Input parameters ─────────────────────────────────────────────
+input:
+  read_type: isoseq          # isoseq | pb_cdna | ont_drna | ont_cdna
+  min_mapq: 20               # minimum mapping quality
+
+# ── Isoform collapsing ──────────────────────────────────────────
+isoforms:
+  junction_tolerance: 10     # max bp wobble at splice junctions
+  end_tolerance: 50          # max bp wobble at 5'/3' ends
+  min_reads: 2               # minimum supporting reads per isoform
+
+# ── Splicing event detection ─────────────────────────────────────
+splicing:
+  min_read_support: 2        # minimum reads to report an event
+  min_expression_fraction: 0.05  # minimum gene expression fraction
+
+# ── ASO design parameters ───────────────────────────────────────
+aso_design:
+  min_length: 18             # minimum ASO length (nt)
+  max_length: 25             # maximum ASO length (nt)
+  optimal_length: 20         # preferred ASO length
+  step_size: 1               # sliding window step
+  gc_min: 0.40               # minimum GC content
+  gc_max: 0.60               # maximum GC content
+  gc_optimal: 0.50           # target GC content
+  max_homopolymer: 4         # max consecutive identical bases
+  splice_site_flank: 300     # bp to scan around splice sites
+  exon_flank: 150            # bp into exon for ESE/ESS scanning
+  top_n: 20                  # max candidates per event
+
+# ── Scoring weights (must sum to 1.0) ───────────────────────────
+scoring:
+  gc_content: 0.20
+  self_complementarity: 0.15
+  splice_proximity: 0.20
+  length_optimality: 0.10
+  rna_accessibility: 0.15
+  off_target_penalty: 0.20
+
+# ── Visualization ────────────────────────────────────────────────
+visualization:
+  max_isoforms: 15           # max isoforms shown on sashimi plot
+  figsize: [16, 10]
+  output_format: png         # png | pdf | svg
+
+# ── Runtime ──────────────────────────────────────────────────────
+runtime:
+  threads: 4
+  verbose: false
