@@ -11,7 +11,7 @@
 
 ## Overview
 
-`splicetarget` is an end-to-end pipeline that converts PacBio IsoSeq or ONT direct-RNA long-read data into actionable antisense oligonucleotide (ASO) therapeutic targets. It is designed for the N-of-1 rare disease setting where a patient's aberrant splicing must be characterized and a splice-switching therapy nominated.
+`splicetarget` is an end-to-end pipeline that converts PacBio IsoSeq or ONT direct-RNA long-read data into actionable antisense oligonucleotide (ASO) therapeutic targets. It is designed for the N-of-1 rare disease setting where a patient's aberrant splicing must be characterized and a splice-switching therapy nominated. A Jupyter Notebook is provided for easy use.
 
 **Pipeline stages:**
 
@@ -71,6 +71,9 @@ conda activate splicetarget
 **External dependencies:** minimap2 ≥ 2.26, samtools ≥ 1.18 (installed via conda or separately)
 
 ## Quick Start
+
+A Juypter notebook is available here that breaks down all steps individually to allow for fine-tuned parameterization and control:
+[SpliceTarget Notebook](notebooks/02_real_data_walkthrough.ipynb)
 
 ```bash
 # Full pipeline: reads → isoforms → events → ASO candidates
