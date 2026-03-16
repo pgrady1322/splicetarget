@@ -1,5 +1,8 @@
 # splicetarget
 
+# Copilot / GitHub config (local only)
+.github/
+
 # Environments
 .venv/
 .vscode/
